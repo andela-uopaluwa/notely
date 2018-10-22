@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import notes from './notes';
 import './App.css';
+import SideBar from './SideBar';
+import NoteBoard from './NoteBoard';
 
 class App extends Component {
+  state = {
+    notes: notes,
+    activeNoteIndex: 0
+  };
+  updateActiveNoteIndex = index => {
+    this.setState({
+      activeNoteIndex: index
+    })
+  }
   render() {
+    const activeNote = this.state.notes[this.state.activeNoteIndex];
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="main">
+          <SideBar notes={this.state.notes} updateActiveNoteIndex={this.updateActiveNoteIndex} />
+          <NoteBoard note={activeNote} />
+        </div>
       </div>
     );
   }
