@@ -6,7 +6,7 @@ class NoteBoard extends Component {
         console.log("BOARD NOTE", note);
         return (  
             <div className="board">
-                <textarea value={note.body || ""} onChange={this.updateNoteBody} />
+                <textarea value={note.body || ""} onChange={(e) => this.props.updateNote(e.target.value)} />
             </div>
         )
     }
