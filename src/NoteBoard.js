@@ -5,7 +5,7 @@ class NoteBoard extends Component {
         const { note } = this.props;
         return (  
             <div className="board">
-                <textarea value={note ? note.body : ""} onChange={(e) => this.props.updateNote(e.target.value)} />
+                <textarea autoFocus value={note ? note.body : ""} onChange={(e) => this.props.updateNote(e.target.value)} />
             </div>
         )
     }
