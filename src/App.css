@@ -1,41 +1,81 @@
-.App {
-  text-align: center;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
+body {
+  height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#root {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App {
+  width: 80%;
+  height: 70%;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .main {
   display: flex;
   flex-direction: row;
+  height: 93%;
+}
+
+.menubar {
+  display: flex;
+  align-items: center;
+  height: 7%;
+  padding-left: 5px;
+  border-bottom: 1px solid lightgray;
 }
 
 .sidebar {
   width: 30%;
+  overflow-y: auto;
+}
+
+.board {
+  width: 70%;
+  padding: 10px;
+  border-left: 1px solid lightgrey;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.board textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.action-button {
+  height: 80%;
+  width: 40px;
+  padding: 5px;
+  margin-right: 7px;
+  border-radius: 5px;
+  outline: none;
+  font-size: 0.8em;
+  color: rgb(50, 125, 223);
+  border: 1px solid lightgray;
+  background-color: inherit;
+}
+
+.sidenote {
+  padding-left: 3%;
+  border-bottom: 1px solid lightgray;
+  color: gray;
+}
+
+.note-metadata {
+  font-size: 0.8em;
+  color: #555;
+}
+
+.active {
+  background-color: gold;
 }
