@@ -6,22 +6,24 @@ class SideBar extends Component {
     }
     render() {
         const { notes } = this.props;
+        const hasNotes = notes.length > 0;
         return (
             <div className="sidebar">
-                {notes.map((note, index) => {
-                    return (
-                        <div key={index} onClick={() => this.updateActiveNoteIndex(index)}>
-                            <span>
-                                <b>{note.body ? note.body.slice(0, 12) : "New note"}...</b>
-                            </span>
-                            <br />
-                            <span>{note.body.slice(0, 30)}</span>
-                            <br />
-                            <span>{note.modified_at.toLocaleDateString()}</span>
-                            <hr />
-                        </div>
-                    );
-                })}
+                {   hasNotes &&
+                    notes.map((note, index) => {
+                        return (
+                            <div key={index} onClick={() => this.props.updateActiveNoteIndex(index)} className={index === this.props.activeNoteIndex ? "sidenote active" : "sidenote"} >
+                                <span>
+                                    <b>{note.body ? note.body.slice(0, 12) : "New note"}...</b>
+                                </span>
+                                <br />
+                                <span className="note-metadata">{note.body.slice(0, 30)}</span>
+                                <br />
+                                <span className="note-metadata">{note.modified_at.toLocaleDateString()}</span>
+                            </div>
+                        );
+                    })
+                }
             </div>
         )
     }
